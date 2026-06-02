@@ -1,0 +1,5 @@
+pydantic
+openai
+google-adk
+litellm
+nest_asyncio

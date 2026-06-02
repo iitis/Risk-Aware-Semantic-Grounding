@@ -1,0 +1,613 @@
+{
+    "rooms": [
+        {
+            "id": "entrance_hall",
+            "type": "Entrance Hall",
+            "objects": [
+                "shoe_rack_1",
+                "coat_hanger_1"
+            ]
+        },
+        {
+            "id": "living_room",
+            "type": "Living Room",
+            "objects": [
+                "sofa_1",
+                "dining_table_1",
+                "coffee_table_1",
+                "tv_1",
+                "tv_stand_1",
+                "armchair_1",
+                "window_lr_1"
+            ]
+        },
+        {
+            "id": "kitchen",
+            "type": "Kitchen",
+            "objects": [
+                "kitchen_table_1",
+                "chair_k_1",
+                "chair_k_2",
+                "chair_k_3",
+                "chair_k_4",
+                "refrigerator_1",
+                "sink_k_1",
+                "stove_1",
+                "oven_1",
+                "window_k_1"
+            ]
+        },
+        {
+            "id": "bedroom_1",
+            "type": "Bedroom 1",
+            "objects": [
+                "bed_double_1",
+                "wardrobe_b1_1",
+                "desk_b1_1",
+                "chair_b1_1",
+                "window_b1_1"
+            ]
+        },
+        {
+            "id": "bedroom_2",
+            "type": "Bedroom 2",
+            "objects": [
+                "bed_single_1",
+                "wardrobe_b2_1",
+                "desk_b2_1",
+                "chair_b2_1",
+                "library_1",
+                "window_b2_1"
+            ]
+        },
+        {
+            "id": "bathroom",
+            "type": "Bathroom",
+            "objects": [
+                "sink_bath_1",
+                "toilet_1",
+                "shower_1"
+            ]
+        },
+        {
+            "id": "office",
+            "type": "Office",
+            "objects": [
+                "desk_office_1",
+                "chair_office_1",
+                "laptop_1"
+            ]
+        },
+        {
+            "id": "corridor",
+            "type": "Corridor",
+            "objects": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "shoe_rack_1",
+            "type": "shoe_rack",
+            "position": {
+                "x": 1,
+                "y": 0.2
+            },
+            "properties": [
+                {
+                    "name": "material",
+                    "value": "wood"
+                }
+            ]
+        },
+        {
+            "id": "coat_hanger_1",
+            "type": "coat_hanger",
+            "position": {
+                "x": 1.8,
+                "y": 2.5
+            },
+            "properties": [
+                {
+                    "name": "material",
+                    "value": "metal"
+                }
+            ]
+        },
+        {
+            "id": "sofa_1",
+            "type": "sofa",
+            "position": {
+                "x": 3.3,
+                "y": 6
+            },
+            "properties": [
+                {
+                    "name": "color",
+                    "value": "gray"
+                },
+                {
+                    "name": "material",
+                    "value": "fabric"
+                }
+            ]
+        },
+        {
+            "id": "dining_table_1",
+            "type": "dining_table",
+            "position": {
+                "x": 2.5,
+                "y": 4.5
+            },
+            "properties": [
+                {
+                    "name": "material",
+                    "value": "wood"
+                },
+                {
+                    "name": "shape",
+                    "value": "rectangular"
+                }
+            ]
+        },
+        {
+            "id": "coffee_table_1",
+            "type": "coffee_table",
+            "position": {
+                "x": 2.3,
+                "y": 6.5
+            },
+            "properties": [
+                {
+                    "name": "material",
+                    "value": "wood"
+                },
+                {
+                    "name": "shape",
+                    "value": "round"
+                }
+            ]
+        },
+        {
+            "id": "tv_1",
+            "type": "tv",
+            "position": {
+                "x": 0.2,
+                "y": 6.0
+            },
+            "properties": [
+                {
+                    "name": "color",
+                    "value": "black"
+                }
+            ]
+        },
+        {
+            "id": "tv_stand_1",
+            "type": "tv_stand",
+            "position": {
+                "x": 0.4,
+                "y": 6.0
+            },
+            "properties": [
+                {
+                    "name": "material",
+                    "value": "wood"
+                }
+            ]
+        },
+        {
+            "id": "armchair_1",
+            "type": "armchair",
+            "position": {
+                "x": 2.5,
+                "y": 5.0
+            },
+            "properties": [
+                {
+                    "name": "color",
+                    "value": "brown"
+                },
+                {
+                    "name": "material",
+                    "value": "leather"
+                }
+            ]
+        },
+        {
+            "id": "window_lr_1",
+            "type": "window",
+            "position": {
+                "x": 2.0,
+                "y": 8.0
+            },
+            "properties": [
+                {
+                    "name": "color",
+                    "value": "white"
+                }
+            ]
+        },
+        {
+            "id": "kitchen_table_1",
+            "type": "dining_table",
+            "position": {
+                "x": 5.0,
+                "y": 6.0
+            },
+            "properties": [
+                {
+                    "name": "material",
+                    "value": "wood"
+                },
+                {
+                    "name": "capacity",
+                    "value": 4
+                }
+            ]
+        },
+        {
+            "id": "chair_k_1",
+            "type": "chair",
+            "position": {
+                "x": 4.3,
+                "y": 5.5
+            },
+            "properties": [
+                {
+                    "name": "material",
+                    "value": "wood"
+                }
+            ]
+        },
+        {
+            "id": "chair_k_2",
+            "type": "chair",
+            "position": {
+                "x": 4.3,
+                "y": 6.5
+            },
+            "properties": [
+                {
+                    "name": "material",
+                    "value": "wood"
+                }
+            ]
+        },
+        {
+            "id": "chair_k_3",
+            "type": "chair",
+            "position": {
+                "x": 5.7,
+                "y": 5.5
+            },
+            "properties": [
+                {
+                    "name": "material",
+                    "value": "wood"
+                }
+            ]
+        },
+        {
+            "id": "chair_k_4",
+            "type": "chair",
+            "position": {
+                "x": 5.7,
+                "y": 6.5
+            },
+            "properties": [
+                {
+                    "name": "material",
+                    "value": "wood"
+                }
+            ]
+        },
+        {
+            "id": "window_k_1",
+            "type": "window",
+            "position": {
+                "x": 6.3,
+                "y": 0.0
+            },
+            "properties": [
+                {
+                    "name": "color",
+                    "value": "white"
+                }
+            ]
+        },
+        {
+            "id": "refrigerator_1",
+            "type": "refrigerator",
+            "position": {
+                "x": 7.3,
+                "y": 7.3
+            },
+            "properties": [
+                {
+                    "name": "color",
+                    "value": "silver"
+                }
+            ]
+        },
+        {
+            "id": "sink_k_1",
+            "type": "sink",
+            "position": {
+                "x": 8.4,
+                "y": 6.2
+            },
+            "properties": [
+                {
+                    "name": "material",
+                    "value": "ceramic"
+                }
+            ]
+        },
+        {
+            "id": "stove_1",
+            "type": "stove",
+            "position": {
+                "x": 8.4,
+                "y": 4.5
+            },
+            "properties": [
+                {
+                    "name": "burners",
+                    "value": 4
+                }
+            ]
+        },
+        {
+            "id": "oven_1",
+            "type": "oven",
+            "position": {
+                "x": 8.4,
+                "y": 5.3
+            },
+            "properties": [
+                {
+                    "name": "color",
+                    "value": "white"
+                }
+            ]
+        },
+        {
+            "id": "bed_double_1",
+            "type": "bed",
+            "position": {
+                "x": 3.0,
+                "y": 2.5
+            },
+            "properties": [
+                {
+                    "name": "size",
+                    "value": "double"
+                }
+            ]
+        },
+        {
+            "id": "wardrobe_b1_1",
+            "type": "wardrobe",
+            "position": {
+                "x": 5.6,
+                "y": 0.7
+            },
+            "properties": [
+                {
+                    "name": "material",
+                    "value": "wood"
+                }
+            ]
+        },
+        {
+            "id": "desk_b1_1",
+            "type": "desk",
+            "position": {
+                "x": 5.65,
+                "y": 1.9
+            },
+            "properties": [
+                {
+                    "name": "material",
+                    "value": "wood"
+                }
+            ]
+        },
+        {
+            "id": "chair_b1_1",
+            "type": "chair",
+            "position": {
+                "x": 5.2,
+                "y": 1.9
+            },
+            "properties": [
+                {
+                    "name": "material",
+                    "value": "plastic"
+                }
+            ]
+        },
+        {
+            "id": "window_b1_1",
+            "type": "window",
+            "position": {
+                "x": 3.5,
+                "y": 0.0
+            },
+            "properties": [
+                {
+                    "name": "color",
+                    "value": "white"
+                }
+            ]
+        },
+        {
+            "id": "bed_single_1",
+            "type": "bed",
+            "position": {
+                "x": 8.0,
+                "y": 0.5
+            },
+            "properties": [
+                {
+                    "name": "size",
+                    "value": "single"
+                }
+            ]
+        },
+        {
+            "id": "wardrobe_b2_1",
+            "type": "wardrobe",
+            "position": {
+                "x": 8.3,
+                "y": 2.1
+            },
+            "properties": [
+                {
+                    "name": "material",
+                    "value": "wood"
+                }
+            ]
+        },
+        {
+            "id": "desk_b2_1",
+            "type": "desk",
+            "position": {
+                "x": 6.4,
+                "y": 1.5
+            },
+            "properties": [
+                {
+                    "name": "material",
+                    "value": "wood"
+                }
+            ]
+        },
+        {
+            "id": "chair_b2_1",
+            "type": "chair",
+            "position": {
+                "x": 6.7,
+                "y": 1.5
+            },
+            "properties": [
+                {
+                    "name": "material",
+                    "value": "plastic"
+                }
+            ]
+        },
+        {
+            "id": "library_1",
+            "type": "bookshelf",
+            "position": {
+                "x": 6.3,
+                "y": 0.7
+            },
+            "properties": [
+                {
+                    "name": "shelves",
+                    "value": 5
+                }
+            ]
+        },
+        {
+            "id": "window_b2_1",
+            "type": "window",
+            "position": {
+                "x": 6.5,
+                "y": 0.0
+            },
+            "properties": [
+                {
+                    "name": "color",
+                    "value": "white"
+                }
+            ]
+        },
+        {
+            "id": "sink_bath_1",
+            "type": "sink",
+            "position": {
+                "x": 10.5,
+                "y": 2.3
+            },
+            "properties": [
+                {
+                    "name": "material",
+                    "value": "ceramic"
+                }
+            ]
+        },
+        {
+            "id": "toilet_1",
+            "type": "toilet",
+            "position": {
+                "x": 11.5,
+                "y": 1.8
+            },
+            "properties": [
+                {
+                    "name": "color",
+                    "value": "white"
+                }
+            ]
+        },
+        {
+            "id": "shower_1",
+            "type": "shower",
+            "position": {
+                "x": 11.0,
+                "y": 0.5
+            },
+            "properties": [
+                {
+                    "name": "color",
+                    "value": "black"
+                }
+            ]
+        },
+        {
+            "id": "desk_office_1",
+            "type": "desk",
+            "position": {
+                "x": 11.6,
+                "y": 6.0
+            },
+            "properties": [
+                {
+                    "name": "material",
+                    "value": "wood"
+                }
+            ]
+        },
+        {
+            "id": "chair_office_1",
+            "type": "chair",
+            "position": {
+                "x": 11.2,
+                "y": 6.2
+            },
+            "properties": [
+                {
+                    "name": "material",
+                    "value": "fabric"
+                }
+            ]
+        },
+        {
+            "id": "laptop_1",
+            "type": "laptop",
+            "position": {
+                "x": 11.8,
+                "y": 6.0
+            },
+            "properties": [
+                {
+                    "name": "color",
+                    "value": "white"
+                }
+            ]
+        }
+    ]
+}
