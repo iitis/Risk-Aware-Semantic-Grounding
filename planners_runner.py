@@ -1,9 +1,9 @@
 import json
 from base_planner import BasePlanner
-from baseline1 import SingleNearestGoalSemanticPlanner
-from baseline2 import RuleBasedSequentialPlanner
-from baseline3 import SimpleLlmPlanner
-from planner_agent import PlannerAgent
+from models.baseline1 import SingleNearestGoalSemanticPlanner
+from models.baseline2 import RuleBasedSequentialPlanner
+from models.baseline3 import SimpleLlmPlanner
+from models.planner_agent import PlannerAgent
 from map_manager import load_map_data, display_objects
 from point import Point
 from typing import List
@@ -11,7 +11,7 @@ import time
 
 if __name__ == "__main__":
     # Load data
-    map_data = load_map_data("smart_home_map.json")
+    map_data = load_map_data("dataset/smart_home_map.json")
 
     if map_data:
         print("Map data loaded successfully!")
@@ -21,7 +21,7 @@ if __name__ == "__main__":
         print("Failed to load map data.")
         exit(1)
 
-    dataset = load_map_data("dataset_query_gt.json")
+    dataset = load_map_data("dataset/dataset_query_decision_gt.json")
 
     if dataset:
         print("Dataset loaded successfully!")
@@ -52,7 +52,7 @@ if __name__ == "__main__":
             print(f"[{planner.__class__.__name__}] Generated plan for {entry['query']}: {plan}")
             planner_results.append({
                 "planner": planner.__class__.__name__,
-                "plan": plan
+                "result": plan
             })
         
         entry_elapsed = time.time() - entry_start
@@ -64,6 +64,8 @@ if __name__ == "__main__":
         
         results["results"].append({
             "query": entry['query'],
+            "category": entry['category'],
+            "decision": entry['decision'],
             "ground_truth": entry['ground_truth'],
             "result": planner_results
         })
@@ -75,5 +77,7 @@ if __name__ == "__main__":
     print(f"{'='*60}\n")
 
     # Save results to a file
-    with open("planning_results.json", "w") as f:
+    with open("results/new_dataset_results.json", "w") as f:
         json.dump(results, f, indent=4)
+
+    print("Results saved to results/new_dataset_results.json")
