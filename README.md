@@ -14,7 +14,8 @@ This repository contains the experimental code and data used in our paper on ris
 - `dataset/` - smart-home map, ground-truth datasets, and result files.
 - `results/` - exported experiment outputs.
 - `generate_dataset.py` - dataset construction script.
-- `planners_runner.py` - main script for running planner experiments.
+- `planners_runner.py`, `planner_risk_aware_runner.py` - main scripts for running planner experiments.
+- `risk_assessment_agent.py`, `decision_layer.py` - neccessary tools for proposel model -  Risk aware-Planner.
 - `analysis dataset.ipynb`, `smart_home_design.ipynb` - analysis and design notebooks.
 
 ## Quick Start
@@ -30,6 +31,8 @@ pip install -r requirements.txt
 
 ```bash
 python planners_runner.py
+python planner_risk_aware_runner.py
+
 ```
 
 4. (Optional) Regenerate dataset:
