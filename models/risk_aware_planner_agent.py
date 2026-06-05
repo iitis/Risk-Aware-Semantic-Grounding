@@ -1,6 +1,13 @@
 import asyncio
 import math
 import json
+from pathlib import Path
+import sys
+
+if __package__ is None or __package__ == "":
+    # Allow running this file directly from the models directory.
+    sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+
 from map_manager import load_map_data
 from base_planner import BasePlanner
 from point import Point
@@ -25,13 +32,15 @@ You can have access to the following tools to query the semantic map data:
 - get_objects_by_type(object_type: str) - Returns all objects in the map of a given type.
 - get_objects_id_in_room(room_type: str) - Returns all objects IDs in the map of a given room type.
 
-Moreover, you can use the following helper function to calculate distances between two points, use it when instruction contains some spatial dependencies between objects.
+Moreover, you can use the following helper function to calculate distances between two points, use it always when instruction contains some spatial dependencies between objects  (e.g. closest window, furthest bed) or robot starting position (e.g. go to an object in the closest room).
 
 - get_distance(x1: float, y1: float, x2: float, y2: float) - Calculates the Euclidean distance between two points.
 
-You should find about which objects the user is talking about in the instruction, and generate a sequence of object IDs as plan steps.
+Based on description of the objects in the instruction and details about the objects in the map, think and understand which objects the user is referring to in the instruction, try to guess (e.g. if there is no exact the same type of object, maybe there is something similar like armchairs/coffee-table or bookshelf/library), and generate a sequence of object IDs as plan steps.
 
-If in some part of instruction you need to visit two or more objects without specific order, choose the order based on the shortest distance from the starting position (use get_distance tool).
+If there are 2 or more objects in the map of the same type and you cannot determine which one is referred in the instruction using properties of the objects, clarify with user by asking a question. Abort plan, DO NOT chose closer one or something like that, just clarify with user by asking a question.
+
+Use received details about the objects in the map to think and understand which objects the user is referring to in the instruction, and generate a sequence of object IDs as plan steps.
 
 Be sure there is a valid order of objects to visit because sometimes it can be not obvious in query, it can be said not in proper order.
 
@@ -46,15 +55,6 @@ if a description of the object in the instruction is misleading and we cannot fi
 Add "answer" field in your response, if you are clarifying with user, add your question to the "answer" field.
 If there is no need to clarify, just create an answer as a robot that confirms that you understood the instruction and you are going to execute it, for example "I understood your instruction and I am going to execute it".
 if there is a rejection, just create an answer as a robot that explains that you cannot execute the instruction, for example "I am sorry, but I cannot execute this instruction because there is no refrigerator in the bedroom according to the map data you provided".
-
-When matching objects, use flexible name matching. For example:
-- "office desk" → look for objects with type "desk" in the office room
-- "kitchen table" → look for objects with type "dining_table" in the kitchen  
-- "single bed" → look for objects with type "bed" and size "single"
-- "office chair" → look for objects with type "chair" in the office room
-
-Always prefer room-qualified search: first get objects in the mentioned room,
-then filter by type. Do NOT ask for clarification if a reasonable match exists.
 
 Example plan steps and output format:
 
@@ -161,7 +161,9 @@ Example plan steps and output format:
 
 if __name__ == "__main__":
     # Load data
-    map_data = load_map_data("smart_home_map.json")
+    project_root = Path(__file__).resolve().parents[1]
+    map_path = project_root / "dataset" / "smart_home_map.json"
+    map_data = load_map_data(str(map_path))
 
     if map_data:
         print("Map data loaded successfully!")

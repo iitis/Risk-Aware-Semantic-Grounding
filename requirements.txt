@@ -3,3 +3,6 @@ openai
 google-adk
 litellm
 nest_asyncio
+ipykernel
+pandas
+matplotlib

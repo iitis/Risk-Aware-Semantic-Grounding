@@ -1,7 +1,14 @@
+from pathlib import Path
+import sys
+import json
+
+if __package__ is None or __package__ == "":
+    # Allow running this file directly from the models directory.
+    sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+
 from map_manager import load_map_data
 from base_planner import BasePlanner
 from point import Point
-import json
 
 class SingleNearestGoalSemanticPlanner(BasePlanner):
     def __init__(self, map_data):
@@ -61,7 +68,9 @@ class SingleNearestGoalSemanticPlanner(BasePlanner):
 
 if __name__ == "__main__":
     # Load data
-    map_data = load_map_data("test_map.json")
+    project_root = Path(__file__).resolve().parents[1]
+    map_path = project_root / "dataset" / "smart_home_map.json"
+    map_data = load_map_data(str(map_path))
 
     if map_data:
         print("Map data loaded successfully!")

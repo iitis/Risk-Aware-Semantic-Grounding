@@ -1,7 +1,14 @@
+from pathlib import Path
+import sys
+import json
+
+if __package__ is None or __package__ == "":
+    # Allow running this file directly from the models directory.
+    sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+
 from map_manager import load_map_data
 from base_planner import BasePlanner
 from point import Point
-import json
 
 class RuleBasedSequentialPlanner(BasePlanner):
     def __init__(self, map_data):
@@ -106,7 +113,9 @@ class RuleBasedSequentialPlanner(BasePlanner):
 
 if __name__ == "__main__":
     # Load data
-    map_data = load_map_data("test_map.json")
+    project_root = Path(__file__).resolve().parents[1]
+    map_path = project_root / "dataset" / "smart_home_map.json"
+    map_data = load_map_data(str(map_path))
 
     if map_data:
         print("Map data loaded successfully!")
@@ -117,7 +126,7 @@ if __name__ == "__main__":
         exit(1)
 
     instruction = "Go to the wooden table in the kitchen, next take a look on a sofa, then stop near the black cabinet."
-    instruction = "Inspect the radiator."
+    instruction = "Go to the window in the living room, but before that, make sure the laptop is in the office."
 
     planner = RuleBasedSequentialPlanner(map_data)
     plan = planner.plan(Point(x=0.2, y=4.0), instruction)

@@ -1,14 +1,21 @@
+import copy
+import json
+from pathlib import Path
+import sys
+
+if __package__ is None or __package__ == "":
+    # Allow running this file directly from the models directory.
+    sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+
 from map_manager import load_map_data
 from base_planner import BasePlanner
 from point import Point
 from pydantic import BaseModel
 from openai import OpenAI
-import copy
-import json
 
 class PlanModel(BaseModel):
     decision: str
-    steps: list[str]
+    plan: list[str]
     answer: str
 
 class SimpleLlmPlanner(BasePlanner):
@@ -34,10 +41,6 @@ Add "decision" field: "execute", "clarify" or "reject".
 
 Add "answer" field in your response with natural answer of robot for the query.
 
-If there are similar objects in the map that can be related to some part of instruction, make decision "clarify" and ask user to clarify which object they mean, for example "Can you clarify which chair you mean?".
-
-if there is no any object in the map that can be related to some part of instruction, just reject the instruction with decision "reject" and answer why it is rejected, for exmaple "I am sorry, but I cannot execute this instruction because there is no refrigerator in the bedroom according to the map data you provided.".
-
 Example outputs as JSON:
 
 - {{"decision": "execute", "plan": ["trash_bin_1", "fridge_1", "table_1"], "answer": "I understood your instruction and I am going to execute it."}}
@@ -61,7 +64,9 @@ Example outputs as JSON:
 
 if __name__ == "__main__":
     # Load data
-    map_data = load_map_data("test_map.json")
+    project_root = Path(__file__).resolve().parents[1]
+    map_path = project_root / "dataset" / "smart_home_map.json"
+    map_data = load_map_data(str(map_path))
 
     if map_data:
         print("Map data loaded successfully!")

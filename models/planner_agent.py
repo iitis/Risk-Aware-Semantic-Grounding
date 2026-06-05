@@ -1,6 +1,13 @@
 import asyncio
 import math
 import json
+from pathlib import Path
+import sys
+
+if __package__ is None or __package__ == "":
+    # Allow running this file directly from the models directory.
+    sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+
 from map_manager import load_map_data
 from base_planner import BasePlanner
 from point import Point
@@ -25,13 +32,15 @@ You can have access to the following tools to query the semantic map data:
 - get_objects_by_type(object_type: str) - Returns all objects in the map of a given type.
 - get_objects_id_in_room(room_type: str) - Returns all objects IDs in the map of a given room type.
 
-Moreover, you can use the following helper function to calculate distances between two points, use it when instruction contains some spatial dependencies between objects.
+Moreover, you can use the following helper function to calculate distances between two points, use it always when instruction contains some spatial dependencies between objects  (e.g. closest window, furthest bed) or robot starting position (e.g. go to an object in the closest room).
 
 - get_distance(x1: float, y1: float, x2: float, y2: float) - Calculates the Euclidean distance between two points.
 
-You should find about which objects the user is talking about in the instruction, and generate a sequence of object IDs as plan steps.
+Based on description of the objects in the instruction and details about the objects in the map, think and understand which objects the user is referring to in the instruction, try to guess (e.g. if there is no exact the same type of object, maybe there is something similar like armchairs/coffee-table or bookshelf/library), and generate a sequence of object IDs as plan steps.
 
-If in some part of instruction you need to visit two or more objects without specific order, choose the order based on the shortest distance from the starting position (use get_distance tool).
+If there are 2 or more objects in the map of the same type and you cannot determine which one is referred in the instruction using properties of the objects, clarify with user by asking a question. Abort plan, DO NOT chose closer one or something like that, just clarify with user by asking a question.
+
+Use received details about the objects in the map to think and understand which objects the user is referring to in the instruction, and generate a sequence of object IDs as plan steps.
 
 Be sure there is a valid order of objects to visit because sometimes it can be not obvious in query, it can be said not in proper order.
 
@@ -152,7 +161,9 @@ Example plan steps and output format:
 
 if __name__ == "__main__":
     # Load data
-    map_data = load_map_data("smart_home_map.json")
+    project_root = Path(__file__).resolve().parents[1]
+    map_path = project_root / "dataset" / "smart_home_map.json"
+    map_data = load_map_data(str(map_path))
 
     if map_data:
         print("Map data loaded successfully!")
@@ -164,8 +175,8 @@ if __name__ == "__main__":
 
     # instruction = "Before heading to the office chair, check the kitchen table and the refrigerator. Finally go to the window in the living room."
     # instruction = "Go to the bookshelf in Bedroom 2, but only after checking the single bed and the desk, and then stop at the window."
-    # instruction = "Before heading to the office chair, check the kitchen table and the refrigerator. Finally go to the window in the living room."
-    instruction = "Visit the refrigerator and then inspect the piano."
+    # instruction = "Visit the refrigerator and then inspect the piano."
+    instruction = "Inspect the bed and then the wardrobe near it."
 
     planner = PlannerAgent(map_data)
     plan = planner.plan(Point(x=0.2, y=4.0), instruction)

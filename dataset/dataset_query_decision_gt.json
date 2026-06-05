@@ -273,6 +273,199 @@
             ]
         },
         {
+            "query": "Go to the kitchen table and then move to the refrigerator.",
+            "category": "multi_step",
+            "decision": "execute",
+            "ground_truth": [
+                "kitchen_table_1",
+                "refrigerator_1"
+            ]
+        },
+        {
+            "query": "Visit the sofa in the living room before going to the TV.",
+            "category": "multi_step",
+            "decision": "execute",
+            "ground_truth": [
+                "sofa_1",
+                "tv_1"
+            ]
+        },
+        {
+            "query": "Before heading to the window in Bedroom 1, stop by the desk.",
+            "category": "multi_step",
+            "decision": "execute",
+            "ground_truth": [
+                "desk_b1_1",
+                "window_b1_1"
+            ]
+        },
+        {
+            "query": "Go to the toilet and afterward move to the shower.",
+            "category": "multi_step",
+            "decision": "execute",
+            "ground_truth": [
+                "toilet_1",
+                "shower_1"
+            ]
+        },
+        {
+            "query": "Make your way to the armchair and then continue to the coffee table.",
+            "category": "multi_step",
+            "decision": "execute",
+            "ground_truth": [
+                "armchair_1",
+                "coffee_table_1"
+            ]
+        },
+        {
+            "query": "Go to the window in the living room, but before that, make sure the laptop is in the office.",
+            "category": "multi_step",
+            "decision": "execute",
+            "ground_truth": [
+                "laptop_1",
+                "window_lr_1"
+            ]
+        },
+        {
+            "query": "Visit the refrigerator in the kitchen only after checking the sink in the bathroom.",
+            "category": "multi_step",
+            "decision": "execute",
+            "ground_truth": [
+                "sink_bath_1",
+                "refrigerator_1"
+            ]
+        },
+        {
+            "query": "Before going to the TV in the living room, make sure the sofa has been checked. Then stop near the coffee table.",
+            "category": "multi_step",
+            "decision": "execute",
+            "ground_truth": [
+                "sofa_1",
+                "tv_1",
+                "coffee_table_1"
+            ]
+        },
+        {
+            "query": "Before going to the sofa in the living room, stop by the shoe rack in the entrance hall.",
+            "category": "multi_step",
+            "decision": "execute",
+            "ground_truth": [
+                "shoe_rack_1",
+                "sofa_1"
+            ]
+        },
+        {
+            "query": "Go to the desk in Bedroom 1, but first check the double bed, and after that visit the window.",
+            "category": "multi_step",
+            "decision": "execute",
+            "ground_truth": [
+                "bed_double_1",
+                "desk_b1_1",
+                "window_b1_1"
+            ]
+        },
+        {
+            "query": "Make sure the toilet is checked before visiting the shower, and then go to the bathroom sink.",
+            "category": "multi_step",
+            "decision": "execute",
+            "ground_truth": [
+                "toilet_1",
+                "shower_1",
+                "sink_bath_1"
+            ]
+        },
+        {
+            "query": "Before heading to the office chair, check the kitchen table and the refrigerator. Finally go to the window in the living room.",
+            "category": "multi_step",
+            "decision": "execute",
+            "ground_truth": [
+                "kitchen_table_1",
+                "refrigerator_1",
+                "chair_office_1",
+                "window_lr_1"
+            ]
+        },
+        {
+            "query": "Go to the bookshelf in Bedroom 2, but only after checking the single bed and the desk, and then stop at the window.",
+            "category": "multi_step",
+            "decision": "execute",
+            "ground_truth": [
+                "desk_b2_1",
+                "bed_single_1",
+                "library_1",
+                "window_b2_1"
+            ]
+        },
+        {
+            "query": "Before inspecting the oven, make sure the stove and the kitchen sink are checked, then go to the kitchen table.",
+            "category": "multi_step",
+            "decision": "execute",
+            "ground_truth": [
+                "stove_1",
+                "sink_k_1",
+                "oven_1",
+                "kitchen_table_1"
+            ]
+        },
+        {
+            "query": "After stopping at the shoe rack, go to the sofa, and only afterward move to the TV stand.",
+            "category": "multi_step",
+            "decision": "execute",
+            "ground_truth": [
+                "shoe_rack_1",
+                "sofa_1",
+                "tv_stand_1"
+            ]
+        },
+        {
+            "query": "Make your way to the armchair and the dining table in the living room, then continue to the kitchen sink and finish at the refrigerator.",
+            "category": "multi_step",
+            "decision": "execute",
+            "ground_truth": [
+                "armchair_1",
+                "dining_table_1",
+                "sink_k_1",
+                "refrigerator_1"
+            ]
+        },
+        {
+            "query": "Go to the furthest table, next take a look on a sofa, then stop near the black shower.",
+            "category": "multi_step",
+            "decision": "execute",
+            "ground_truth": [
+                "kitchen_table_1",
+                "sofa_1",
+                "shower_1"
+            ]
+        },
+        {
+            "query": "Go to the oven in the kitchen, then stand next to the chair closest to the window.",
+            "category": "multi_step",
+            "decision": "execute",
+            "ground_truth": [
+                "oven_1",
+                "chair_k_4"
+            ]
+        },
+        {
+            "query": "Go to the closest desk, then stop by the bed in that room.",
+            "category": "multi_step",
+            "decision": "execute",
+            "ground_truth": [
+                "desk_b1_1",
+                "bed_double_1"
+            ]
+        },
+        {
+            "query": "Go to the refrigerator in the kitchen, then stop next to the chair nearest to the sink.",
+            "category": "multi_step",
+            "decision": "execute",
+            "ground_truth": [
+                "refrigerator_1",
+                "chair_k_4"
+            ]
+        },
+        {
             "query": "Walk to the sofa in the living room, then stand beside the coffee table closest to it.",
             "category": "multi_step",
             "decision": "execute",
